@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Contact.css';
 import theme_pattern from '@assets/theme_pattern.svg';
 import mail_icon from '@assets/mail_icon.svg';
@@ -9,6 +9,7 @@ const Contact = () => {
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
+    const formRef = useRef();
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -27,15 +28,11 @@ const Contact = () => {
           },
           body: json
         }).then((res) => res.json());
-    
-        // if (res.success) {
-        //   console.log("Success", res);
-        //   alert(res.message);
-        // }
 
         if (res.success) {
             setModalMessage("Thank you! Your message has been successfully sent.");
             setIsModalOpen(true);
+            formRef.current.reset();
         } else {
             setModalMessage("Oops! Something went wrong. Please try again later.");
             setIsModalOpen(true);
@@ -58,7 +55,7 @@ const Contact = () => {
                         <div className="detail"><img src={location_icon} alt="" /><p>Valsad, Gujarat, India.</p></div>
                     </div>
                 </div>
-                <form className='contact-right' onSubmit={onSubmit}>
+                <form ref={formRef} className='contact-right' onSubmit={onSubmit}>
                     <label htmlFor="">Your Name</label>
                     <input type="text" name='name' placeholder='Enter your name' />
                     <label htmlFor="">Your Email</label>
