@@ -1,105 +1,170 @@
 .mywork {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 80px;
-    margin: 80px 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  margin: 80px 170px;
 }
 
 .mywork-title {
-    position: relative;
+  position: relative;
 }
 
 .mywork-title h1 {
-    padding: 0px 30px;
-    font-size: 80px;
-    font-weight: 600;
+  padding: 0px 30px;
+  font-size: 80px;
+  font-weight: 600;
 }
 
-.mywork-title img{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+.mywork-title img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .mywork-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.work-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.work-card:hover .work-image {
+  opacity: 0.5;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.work-name {
+  font-family: 'Heebo', sans-serif;
+  font-size: 22px;
+  color: #faf7f0;
+  font-weight: 600;
+  text-align: center;
 }
 
 .mywork-container img {
-    box-sizing: border-box;
-    width: 419px;
-    height: 280px;
-    transition: 0.3s;
-    cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .mywork-container img:hover {
-    transform: scale(1.10);
-    border: 4px solid #ff00ff;
-    border-radius: 10px;
-    transition: 0.3s;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 .mywork-showmore {
-    display: flex;
-    gap: 15px;
-    border-radius: 50px;
-    border: 2px solid #FFF;
-    padding: 30px 60px;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 80px;
-    transition: 0.4s;
-    cursor: pointer;
+  display: flex;
+  gap: 15px;
+  border-radius: 50px;
+  border: 2px solid #fff;
+  padding: 30px 60px;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 80px;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
 .mywork-showmore:hover {
-    gap: 40px;
-    transition: 0.4s;
+  gap: 40px;
+  transition: 0.4s;
 }
 
+@media (max-width: 768px) {
+  .mywork {
+    gap: 50px;
+    margin: 50px 70px;
+    align-items: start;
+  }
 
-@media(max-width:768px) {
-    .mywork {
-        gap: 50px;
-        margin: 50px 70px;
-        align-items: start;
-    }
+  .mywork-title h1 {
+    font-size: 50px;
+    padding: 0;
+    font-weight: 600;
+  }
 
-    .mywork-title h1 {
-        font-size: 50px;
-        padding: 0;
-        font-weight: 600;
-    }
+  .mywork-title img {
+    width: 130px;
+    margin-right: -20px;
+  }
 
-    .mywork-title img {
-        width: 130px;
-        margin-right: -20px;
-    }
+  .mywork-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
 
-    .mywork-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
+  .mywork-container img {
+    width: 100%;
+    height: 100%;
+  }
 
-    .mywork-container img {
-        width: 100%;
-        height: 100%;
-    }
+  .mywork-container img:hover {
+    border: none;
+  }
 
-    .mywork-container img:hover {
-        border: none;
-    }
+  .mywork-showmore {
+    padding: 20px 40px;
+    font-size: 18px;
+    margin: 50px auto;
+    cursor: pointer;
+  }
+}
 
-    .mywork-showmore {
-        padding: 20px 40px;
-        font-size: 18px;
-        margin: 50px auto;
-        cursor: pointer;
-    }
+@media (max-width: 480px) {
+  .mywork {
+    gap: 35px;
+    margin: 20px 40px;
+  }
+
+  .mywork-title h1 {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .mywork-title img {
+    width: 100px;
+    right: -10px;
+  }
+
+  .mywork-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }

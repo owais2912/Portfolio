@@ -4,13 +4,13 @@ import Home from '@pages/Home/index';
 import routesConfig from './routesConfig';
 
 const AppRoutes = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path={routesConfig.home} element={<Home />} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path={routesConfig.home} element={<Home />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default AppRoutes;

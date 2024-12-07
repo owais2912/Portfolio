@@ -1,5 +1,5 @@
 const routesConfig = {
-    home: '/',
+  home: '/',
 };
 
 export default routesConfig;
